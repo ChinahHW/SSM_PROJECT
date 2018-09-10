@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.hw.dao.MovieMapper">
+ 	<select id="getAll" resultType="com.hw.pojo.Movie">
+ 		select * from movie where isdel = 'false'
+ 	</select>
+ 	<select id="findMovie" resultType="com.hw.pojo.Movie">
+ 		select * from movie where 1=1
+ 		<if test="clazz != null and clazz !=''">
+ 			and clazz like concat('%',#{clazz},'%')
+ 		</if>
+ 		and isdel='false'
+ 	</select>
+ 	<select id="getMovieById" resultType="com.hw.pojo.Movie">
+ 		select * from movie where id=#{id} and isdel='false'
+ 	</select>
+ 	<select id="findMovieNumber" resultType="java.lang.Integer">
+ 		select count(*) from movie where 1=1
+ 		<if test="clazz != null and clazz !=''">
+ 			and clazz like concat('%',#{clazz},'%')
+ 		</if>
+ 		and isdel='false'
+ 	</select>
+ 	<insert id="addMovie" parameterType="com.hw.pojo.Movie">
+ 		insert into movie(name,content,url,picture,clazz) values(#{name},#{content},#{url},#{picture},#{clazz})
+ 	</insert>
+ 	<update id="changeInfo" parameterType="com.hw.pojo.Movie">
+ 		update movie set name=#{name},content=#{content},url=#{url},picture=#{picture},clazz=#{clazz} where id=#{id}
+ 	</update>
+ 	<update id="delMovie">
+ 		update movie set isdel='true' where id=#{id}
+ 	</update>
+ </mapper>

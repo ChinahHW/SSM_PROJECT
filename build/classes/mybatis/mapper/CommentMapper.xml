@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.hw.dao.CommentMapper">
+ <select id="getAll" resultType="com.hw.pojo.Comment">
+ 	select * from comment
+ </select>
+ <select id="getByUserId" resultType="com.hw.pojo.Comment">
+ 	select * from comment where userid=#{userid} order by id desc
+ </select>
+  <select id="getByMovieId" resultType="com.hw.pojo.Comment">
+ 	select * from comment where movieid=#{movieid} order by id desc
+ </select>
+  <select id="getMostPopular" resultType="com.hw.pojo.Comment">
+ 	select * from comment where movieid=#{movieid} order by agree desc
+ </select>
+ <insert id="add" parameterType="com.hw.pojo.Comment">
+ 	insert into comment(content,userid,movieid) values(#{content},#{userid},#{movieid})
+ </insert>
+ <delete id="del">
+ 	delete from comment where userid=#{userid} and movieid=#{movieid}
+ </delete>
+ <update id="update">
+ 	update comment set content=#{content} where userid=#{userid} and movieid=#{movieid}
+ </update>
+ <update id="agree">
+ 	update comment set agree=agree+1 where id=#{commentid}
+ </update>
+  <update id="disagree">
+ 	update comment set agree=agree-1 where id=#{commentid}
+ </update>
+ <select id="getMostPopularByUserId" resultType="com.hw.pojo.Comment">
+ 	select * from comment where userid=#{userid} order by agree desc
+ </select>
+ </mapper>

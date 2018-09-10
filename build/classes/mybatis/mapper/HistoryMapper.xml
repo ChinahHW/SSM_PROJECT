@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.hw.dao.HistoryMapper">
+<!--  List<Integer> getMovieId(Integer userid);
+	//推送功能
+int getUserIdByListMovieId(List<Integer> movieids);
+List<Movie> push(@Param("movieids")List<Integer> movieids,@Param("userid")Integer userid); -->
+ 	<insert id="add">
+ 		insert into history(userid,movieid) values(#{userid},#{movieid})
+ 	</insert>
+ 	<select id="getUserId" resultType="java.lang.Integer">
+ 		select userid from history where movieid=#{movieid}
+ 	</select>
+ 	<select id="removesame" resultType="com.hw.pojo.History">
+ 		select * from history where movieid=#{movieid} and userid=#{userid}
+ 	</select>
+ 	<select id="getMovieId" resultType="java.lang.Integer">
+ 		select movieid from history where userid=#{userid}
+ 	</select>
+ 	<select id="getUserIdByListMovieId" resultType="java.lang.Integer">
+ 		select userid,count(*) from history where movieid in 
+ 		<foreach collection="movieids" item="movieid" index="index" open="(" close=")" separator=",">
+ 			#{movieid}
+ 		</foreach>
+ 		 GROUP BY userid limit 0,1
+ 	</select>
+ 	<select id="push" resultType="java.lang.Integer">
+ 		select movieid from history WHERE userid=#{userid} and movieid not in 
+ 		<foreach collection="movieids" item="movieid" index="index" open="(" close=")" separator=",">
+ 			#{movieid}
+ 		</foreach>
+ 		limit 0,4
+ 	</select>
+ </mapper>
