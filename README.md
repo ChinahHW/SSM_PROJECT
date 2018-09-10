@@ -23,4 +23,37 @@
 # 四、ScreenShot
 
 ![首页](https://github.com/ChinahHW/SSM_PROJECT/blob/master/QianYing_picture/首页.png)
+
 首页
+
+![登录](https://github.com/ChinahHW/SSM_PROJECT/blob/master/QianYing_picture/登录.png)
+
+登录
+
+![注册](https://github.com/ChinahHW/SSM_PROJECT/blob/master/QianYing_picture/注册.png)
+
+注册
+
+![电影列表](https://github.com/ChinahHW/SSM_PROJECT/blob/master/QianYing_picture/电影列表.png)
+
+电影列表
+
+![电影详情](https://github.com/ChinahHW/SSM_PROJECT/blob/master/QianYing_picture/电影详情.png)
+
+电影详情
+
+![用户主页](https://github.com/ChinahHW/SSM_PROJECT/blob/master/QianYing_picture/用户主页.png)
+
+用户主页
+
+![好友主页](https://github.com/ChinahHW/SSM_PROJECT/blob/master/QianYing_picture/用户列表.png)
+
+好友主页
+
+![私信列表](https://github.com/ChinahHW/SSM_PROJECT/blob/master/QianYing_picture/私信列表.png)
+
+私信列表
+
+![后台管理](https://github.com/ChinahHW/SSM_PROJECT/blob/master/QianYing_picture/后台管理.png)
+
+后台管理
